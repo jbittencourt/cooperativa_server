@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : cliente_servidor.xml
+    Created on : 29 de Setembro de 2003, 10:17
+    Author     : robson
+    Description:
+        montagem completa de um xml servidor_cliente conforme DTD
+        coop_servidor_cliente.dtd.
+-->
+<!DOCTYPE cooperativa_cliente_servidor SYSTEM "coop_cliente_servidor.dtd">
+<cooperativa_cliente_servidor version="1.0">
+    <identify username="robson" password="robson"></identify>
+    <navigate>
+        <request_enter_cenario idcenario="1" celpos="1" request_cenario_xml="" />
+        <chat>
+            <enter_cenario iduser="1" posx="20" posy="20" method="teleport" />
+            <move_to posx="20" posy="20" iduser="1" />
+            <talk iduser="1" />
+            <change_object_state idobj="12" status="0" tag="0" />
+        </chat>
+    </navigate>
+    <logout iduser="1"/>
+</cooperativa_cliente_servidor>

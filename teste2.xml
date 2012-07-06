@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : teste2.xml
+    Created on : September 18, 2003, 11:41 AM
+    Author     : maicon
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE cooperativa_cliente_servidor SYSTEM "http://localhost/coop_cliente_servidor.dtd">
+<cooperativa_cliente_servidor version="0.5">
+ 
+<identify username="eu" password="eu"></identify>
+<navigate>
+  <request_enter_cenario idcenario="1" celpos="1" request_cenario_xml="0"></request_enter_cenario>
+  <chat>
+    <talk iduser="49">talk1</talk>
+    <talk iduser="49">talk2</talk>
+    <move_to iduser="49" posx="10" posy="20"></move_to>
+    <change_object_state idobj="1" status="23" tag="1" posx="10" posy="15"></change_object_state>
+    <change_object_state idobj="2" status="10" tag="23" posx="15" posy="18"></change_object_state>  
+    <inventory_add_item idobj="1" iduser="49"></inventory_add_item>
+    <inventory_add_item idobj="2" iduser="49"></inventory_add_item>
+    <inventory_drop_item idobj="1" iduser="49" posx="12" posy="13"></inventory_drop_item>
+    <inventory_drop_item idobj="2" iduser="49" posx="12" posy="13"></inventory_drop_item>
+  </chat>
+  <logout iduser="49" />
+</navigate>  
+</cooperativa_cliente_servidor>
+
+<!DOCTYPE cooperativa_servidor_cliente SYSTEM "http://localhost/coop_servidor_cliente.dtd">
+<cooperativa_servidor_cliente version="0.5">
+<identify_ack status="0"><userinfo  iduser="48"  nomUser="maicon"  nomPessoa="Maicon Brauwers"  strEmail="maicon@edu.ufrgs.br"  codHomeCenario="0" ></userinfo></identify_ack>
+<navigate>
+  <request_enter_cenario_ack status="0" idcenario="1">
+    <cenario_status_info>
+      <user_status  iduser="48"  posx="1"  posy="1" >
+        <userinfo  iduser="48"  nomUser="maicon"  nomPessoa="Maicon Brauwers"  strEmail="maicon@edu.ufrgs.br"  codHomeCenario="0" ></userinfo>
+      </user_status>
+    </cenario_status_info>
+  </request_enter_cenario_ack>
+  <chat>
+   <enter_cenario iduser="48"  posx="10"  posy="20" ></enter_cenario>
+   <change_object_state  idobj="1"  status="2"  tag="45" ></change_object_state>
+
+  </chat>
+</navigate>
+</cooperativa_servidor_cliente>

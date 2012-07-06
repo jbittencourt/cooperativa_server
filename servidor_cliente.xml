@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : cliente_servidor.xml
+    Created on : 25 de Setembro de 2003, 12:32
+    Author     : robson
+    Description:
+        montagem completa de um xml servidor_cliente conforme DTD
+        coop_servidor_cliente.dtd.
+-->
+
+<!DOCTYPE cooperativa_servidor_cliente SYSTEM "coop_servidor_cliente.dtd">
+
+<!-- ATT version #REQUIRED -->
+<cooperativa_servidor_cliente version="1.0">
+    <!-- ATT status #REQUIRED -->
+    <identify_ack status="0">
+        <!-- ATT iduser,nomUser,nomPessoa,strEmail #REQUIRED and codHomeCenario #IMPLIED type #EMPTY-->
+        <userinfo iduser="60" nomUser="robson" nomPessoa="Robson Mendonça" strEmail="mail@coop.br" codHomeCenario="1"></userinfo>
+    </identify_ack>
+    <!-- ATT not declared -->
+    <navigate>
+        <!-- ATT status,idcenario #REQUIRED -->
+        <request_enter_cenrario_ack status="0" idcenario="1">
+            <!-- ATT not declared type #PCDATA -->
+            <cenario_xml>xml do cenario</cenario_xml>
+            <!-- ATT not declared -->
+            <cenario_status_info>
+                <!-- ATT iduser,posx,posy #REQUIRED -->
+                <user_status  iduser="60" posx="20" posy="20">
+                    <!-- ATT iduser,nomUser,nomPessoa,strEmail #REQUIRED and codHomeCenario #IMPLIED type #EMPTY-->
+                    <userinfo iduser="60" nomUser="robson" nomPessoa="Robson Mendonça" strEmail="mail@coop.br" codHomeCenario="1"></userinfo>
+                </user_status>
+                <!-- ATT idobj,status,flag #REQUIRED -->
+                <object_status idobj="20" status="0" flag="0"></object_status>
+            </cenario_status_info>
+        </request_enter_cenrario_ack>
+        <chat>
+            <!-- ATT iduser,posx,posy #REQUIRED and method #IMPLIED -->
+            <enter_cenario iduser="60" posx="20" posy="20" method="teleport"></enter_cenario>
+            <!-- ATT posx,posy,iduser #REQUIRED -->
+            <move_to posx="20" posy="20" iduser="60"></move_to>
+            <!-- ATT iduser #REQUIRED type #PCDATA -->
+            <talk iduser="60"></talk>
+            <!-- ATT idobj,status,tag -->
+            <change_object_state idobj="20" status="1" tag="play"></change_object_state>
+        </chat>
+    </navigate>
+</cooperativa_servidor_cliente>

@@ -1,0 +1,260 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 38;
+	objects = {
+		00E6828EFEC88D1A11DB9C8B = {
+			buildStyles = (
+				130F8B95001BDF0A11CA292A,
+				130F8B96001BDF0A11CA292A,
+			);
+			hasScannedForEncodings = 1;
+			isa = PBXProject;
+			mainGroup = 00E6828FFEC88D1A11DB9C8B;
+			productRefGroup = 0120612AFEC8923411DB9C8B;
+			projectDirPath = "";
+			targets = (
+				130F8B90001BDF0A11CA292A,
+			);
+		};
+		00E6828FFEC88D1A11DB9C8B = {
+			children = (
+				010341B7FEEF030011DB9C8B,
+				0120612AFEC8923411DB9C8B,
+				F591BCE6048D369901FDF4BC,
+				F591BCE7048D369901FDF4BC,
+				F591BCE8048D369901FDF4BC,
+				F591BCE9048D369901FDF4BC,
+				F591BCEA048D369901FDF4BC,
+				F52958E7049657B4017DBB99,
+				D7B2D04704AB83C200CA591B,
+				F526C9AA049FB36B01548222,
+			);
+			isa = PBXGroup;
+			refType = 4;
+		};
+//000
+//001
+//002
+//003
+//004
+//010
+//011
+//012
+//013
+//014
+		010341B7FEEF030011DB9C8B = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = RDJava2.java;
+			refType = 4;
+		};
+		0120612AFEC8923411DB9C8B = {
+			children = (
+				F591BCD7048D338C01FDF4BC,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+		};
+//010
+//011
+//012
+//013
+//014
+//130
+//131
+//132
+//133
+//134
+		130F8B90001BDF0A11CA292A = {
+			buildPhases = (
+				130F8B91001BDF0A11CA292A,
+				130F8B93001BDF0A11CA292A,
+				130F8B94001BDF0A11CA292A,
+			);
+			buildSettings = {
+				JAVA_ARCHIVE_CLASSES = YES;
+				JAVA_ARCHIVE_TYPE = JAR;
+				JAVA_COMPILER = /usr/bin/javac;
+				JAVA_SOURCE_SUBDIR = .;
+				PRODUCT_NAME = RDJava2;
+				PURE_JAVA = YES;
+				REZ_EXECUTABLE = YES;
+			};
+			dependencies = (
+			);
+			isa = PBXToolTarget;
+			name = RDJava2;
+			productInstallPath = /usr/local/bin;
+			productName = RDJava2;
+			productReference = F591BCD7048D338C01FDF4BC;
+		};
+		130F8B91001BDF0A11CA292A = {
+			buildActionMask = 2147483647;
+			files = (
+				130F8B92001BDF0A11CA292A,
+				F591BCEB048D369901FDF4BC,
+				F591BCED048D369901FDF4BC,
+				F52958E8049657B4017DBB99,
+				F526C9AB049FB36B01548222,
+				D7F35DEE04A8F46B001AEE51,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		130F8B92001BDF0A11CA292A = {
+			fileRef = 010341B7FEEF030011DB9C8B;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		130F8B93001BDF0A11CA292A = {
+			buildActionMask = 2147483647;
+			files = (
+				D7B2D04804AB83C200CA591B,
+			);
+			isa = PBXJavaArchiveBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		130F8B94001BDF0A11CA292A = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		130F8B95001BDF0A11CA292A = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		130F8B96001BDF0A11CA292A = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+//130
+//131
+//132
+//133
+//134
+//D70
+//D71
+//D72
+//D73
+//D74
+		D7B2D04704AB83C200CA591B = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = db.ini;
+			refType = 4;
+		};
+		D7B2D04804AB83C200CA591B = {
+			fileRef = D7B2D04704AB83C200CA591B;
+			isa = PBXBuildFile;
+			settings = {
+				JAVA_ARCHIVE_SUBDIR = "";
+			};
+		};
+		D7F35DEE04A8F46B001AEE51 = {
+			fileRef = F591BCE7048D369901FDF4BC;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//D70
+//D71
+//D72
+//D73
+//D74
+//F50
+//F51
+//F52
+//F53
+//F54
+		F526C9AA049FB36B01548222 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = RDLista.java;
+			refType = 4;
+		};
+		F526C9AB049FB36B01548222 = {
+			fileRef = F526C9AA049FB36B01548222;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F52958E7049657B4017DBB99 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = RDConnection.java;
+			refType = 4;
+		};
+		F52958E8049657B4017DBB99 = {
+			fileRef = F52958E7049657B4017DBB99;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F591BCD7048D338C01FDF4BC = {
+			includeInIndex = 0;
+			isa = PBXZipArchiveReference;
+			path = RDJava2.jar;
+			refType = 3;
+		};
+		F591BCE6048D369901FDF4BC = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = OpVal.java;
+			refType = 4;
+		};
+		F591BCE7048D369901FDF4BC = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = RDObj.java;
+			refType = 4;
+		};
+		F591BCE8048D369901FDF4BC = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = RDRecBuilder.java;
+			refType = 4;
+		};
+		F591BCE9048D369901FDF4BC = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = RDUser.java;
+			refType = 4;
+		};
+		F591BCEA048D369901FDF4BC = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = Representante.java;
+			refType = 4;
+		};
+		F591BCEB048D369901FDF4BC = {
+			fileRef = F591BCE6048D369901FDF4BC;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F591BCED048D369901FDF4BC = {
+			fileRef = F591BCE8048D369901FDF4BC;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+	};
+	rootObject = 00E6828EFEC88D1A11DB9C8B;
+}

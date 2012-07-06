@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : coop_servidor_cliente.dtd
+    Created on : 23 de Setembro de 2003, 11:35
+    Author     : juliano
+    Description:
+        Purpose of the document follows.
+-->
+
+
+<!ELEMENT cooperativa_servidor_cliente (create_user*,identify_ack+,navigate)>
+
+<!-- resposta do servidor a um pedido de criacao de usuario -->
+<!ELEMENT create_user EMPTY>
+
+<!--resposta de logon do servidor-->
+<!ELEMENT identify_ack (userinfo)*>
+
+<!ELEMENT navigate (request_enter_cenario_ack,chat)+>
+<!ELEMENT request_enter_cenario_ack (cenario_xml*,cenario_status_info)>
+<!ELEMENT cenario_status_info (user_status|object_status)*>
+<!ELEMENT user_status (userinfo)>
+<!ELEMENT object_status EMPTY>
+<!ELEMENT cenario_xml (#PCDATA)>
+<!ELEMENT userinfo EMPTY>
+
+<!--eventos do chat, sempre que alguem falar ou se move-->
+<!ELEMENT chat (sync|enter_cenario|move_to|talk|change_object_state|logout)+>
+
+<!ELEMENT sync EMPTY>
+<!--entrada de alguem em um cenario (idUser posx posy method)-->
+<!ELEMENT enter_cenario EMPTY>
+<!ELEMENT change_object_state EMPTY>
+<!ELEMENT move_to EMPTY>
+<!ELEMENT talk (#PCDATA)>
+<!--logout identifica que um usuario deslogou -->
+<!ELEMENT logout EMPTY>
+
+
+<!--   ATTRIBUTES -->
+   
+<!--Version of the server-->
+<!ATTLIST cooperativa_servidor_cliente version CDATA #REQUIRED>
+
+<!-- Status=0 sucesso na criacao do usuario, Status!=0 falha. -->
+<!ATTLIST create_user status CDATA #REQUIRED>
+
+<!-- Identify_ack  status is 0 to success and 0> to failure. If the login failed, the return is the error code. -->
+<!ATTLIST identify_ack status CDATA #REQUIRED>
+
+<!-- request_enter_cenrario_ack  status is 0 un success or the error number on failure -->
+<!ATTLIST request_enter_cenario_ack status CDATA #REQUIRED>
+
+
+<!ATTLIST user_status iduser CDATA #REQUIRED>
+<!ATTLIST user_status posx CDATA #REQUIRED>
+<!ATTLIST user_status posy CDATA #REQUIRED>
+
+<!ATTLIST object_status idobj CDATA #REQUIRED>
+<!-- Animated objects can be in a state that isn't the original state tha was defined in the cenario
+     description. This two attributs define de atual state of the object. Each object implementation define
+     it's owns attributes.-->
+<!ATTLIST object_status status CDATA #REQUIRED>
+<!ATTLIST object_status tag CDATA #REQUIRED>
+<!ATTLIST object_status posx CDATA #REQUIRED>
+<!ATTLIST object_status posy CDATA #REQUIRED>
+<!-- flagInventory diz se o objeto esta no iventario de algum usuario -->
+<!ATTLIST object_status flagInventory CDATA #REQUIRED>
+<!-- iduser eh o id do usuario que tem o objeto no seu inventario -->
+<!ATTLIST object_status iduser CDATA #REQUIRED>
+
+
+<!--dados minimos para insercao de usuarios-->
+<!ATTLIST userinfo iduser CDATA #REQUIRED>
+<!ATTLIST userinfo nomUser CDATA #REQUIRED>
+<!ATTLIST userinfo nomPessoa CDATA #REQUIRED>
+<!ATTLIST userinfo strEmail CDATA #REQUIRED>
+<!ATTLIST userinfo codAvatar CDATA #REQUIRED>
+<!ATTLIST userinfo codHomeCenario CDATA #IMPLIED>
+
+<!--requisicao de entrada em um cenario-->
+<!ATTLIST request_enter_cenario_ack idcenario CDATA #REQUIRED>
+
+<!ATTLIST enter_cenario iduser CDATA #REQUIRED>
+<!ATTLIST enter_cenario posx CDATA #REQUIRED>
+<!ATTLIST enter_cenario posy CDATA #REQUIRED>
+<!ATTLIST enter_cenario method CDATA #IMPLIED>
+<!ATTLIST enter_cenario avatar CDATA #REQUIRED>
+
+<!ATTLIST move_to posx CDATA #REQUIRED>
+<!ATTLIST move_to posy CDATA #REQUIRED>
+<!ATTLIST move_to iduser CDATA #REQUIRED>
+
+<!ATTLIST talk iduser CDATA #REQUIRED>
+
+<!ATTLIST change_object_state idobj CDATA #REQUIRED>
+<!ATTLIST change_object_state status CDATA #REQUIRED>
+<!ATTLIST change_object_state tag CDATA #REQUIRED>
+<!-- Posicao do objeto -->
+<!ATTLIST change_object_state posx CDATA #REQUIRED>
+<!ATTLIST change_object_state posy CDATA #REQUIRED>
+<!-- flagInventory diz se o objeto esta no iventario de algum usuario -->
+<!ATTLIST change_object_state flagInventory CDATA #REQUIRED>
+<!-- iduser eh o id do usuario que tem o objeto no seu inventario -->
+<!ATTLIST change_object_state iduser CDATA #REQUIRED>
+
+
+<!ATTLIST logout iduser CDATA #REQUIRED>

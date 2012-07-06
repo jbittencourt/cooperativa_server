@@ -1,0 +1,66 @@
+<?xml encoding="UTF-8" ?>
+
+<!-- Created by juliano on 15 de Agosto de 2003, 00:34 -->
+
+<!ELEMENT cooperativa_cliente_servidor ((create_user | identify)+,navigate)>
+
+<!ELEMENT create_user EMPTY> 
+<!ELEMENT identify EMPTY>
+<!ELEMENT navigate (request_enter_cenario,chat,logout)+>
+<!ELEMENT request_enter_cenario EMPTY>
+<!ELEMENT chat (enter_cenario| move_to | talk | change_object_state | inventory_add_item | inventory_drop_item)*>
+<!ELEMENT enter_cenario EMPTY>
+<!ELEMENT move_to EMPTY>
+<!ELEMENT talk (#PCDATA)>
+<!ELEMENT change_object_state EMPTY>
+<!ELEMENT logout EMPTY>
+<!ELEMENT inventory_add_item EMPTY>
+<!ELEMENT inventory_drop_item EMPTY>
+
+
+<!--Version of the cliente-->
+<!ATTLIST cooperativa_cliente_servidor version CDATA #REQUIRED>
+
+<!ATTLIST create_user username CDATA #REQUIRED>
+<!ATTLIST create_user password CDATA #REQUIRED>
+<!ATTLIST create_user nomPessoa CDATA #REQUIRED>
+<!ATTLIST create_user idAvatar CDATA #REQUIRED>
+
+<!ATTLIST identify username CDATA #REQUIRED>
+<!-- Password deve ser um campo criptografado-->
+<!ATTLIST identify password CDATA #REQUIRED>
+
+<!ATTLIST request_enter_cenario idcenario CDATA #REQUIRED>
+<!-- idpos is identifyer of the cenario window that is being requested. The format of de request is a concat of the x and y
+  position of the window in the geometry of the cenario. -->
+<!ATTLIST request_enter_cenario celpos CDATA #REQUIRED>
+<!ATTLIST request_enter_cenario request_cenario_xml CDATA #REQUIRED>
+
+<!ATTLIST enter_cenario iduser CDATA #REQUIRED>
+<!ATTLIST enter_cenario posx CDATA #REQUIRED>
+<!ATTLIST enter_cenario posy CDATA #REQUIRED>
+<!ATTLIST enter_cenario method CDATA #IMPLIED>
+
+<!ATTLIST move_to posx CDATA #REQUIRED>
+<!ATTLIST move_to posy CDATA #REQUIRED>
+<!ATTLIST move_to iduser CDATA #REQUIRED>
+
+<!ATTLIST talk iduser CDATA #REQUIRED>
+
+<!ATTLIST change_object_state idobj CDATA #REQUIRED>
+<!ATTLIST change_object_state status CDATA #REQUIRED>
+<!ATTLIST change_object_state tag CDATA #REQUIRED>
+<!ATTLIST change_object_state posx CDATA #REQUIRED>
+<!ATTLIST change_object_state posy CDATA #REQUIRED>
+
+<!-- usuario adiciona um item no seu inventario -->
+<!ATTLIST inventory_add_item idobj CDATA #REQUIRED>
+<!ATTLIST inventory_add_item iduser CDATA #REQUIRED>
+
+<!-- usuario remove um item do seu inventario -->
+<!ATTLIST inventory_drop_item idobj CDATA #REQUIRED>
+<!ATTLIST inventory_drop_item iduser CDATA #REQUIRED>
+<!ATTLIST inventory_drop_item posx CDATA #REQUIRED>
+<!ATTLIST inventory_drop_item posy CDATA #REQUIRED>
+
+<!ATTLIST logout iduser CDATA #REQUIRED>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : teste.xml
+    Created on : September 16, 2003, 12:04 PM
+    Author     : maicon
+    Description:
+        Purpose of the document follows.
+-->
+
+
+
+<!DOCTYPE cooperativa_cliente_servidor SYSTEM "http://localhost/coop_cliente_servidor.dtd">
+<cooperativa_cliente_servidor version="0.5">
+<create_user username="seila" password="seila" nomPessoa="Seila" idAvatar="1" /> 
+<identify username="maicon" password="maicon"></identify>
+<navigate>
+  <request_enter_cenario idcenario="1" celpos="1" request_cenario_xml="0"></request_enter_cenario>
+  <chat>
+    <enter_cenario iduser="48" posx="10" posy="20"></enter_cenario>
+    <talk iduser="48">talk1</talk>
+    <talk iduser="48">talk2</talk>
+    <move_to iduser="48" posx="10" posy="20"></move_to>
+    <change_object_state idobj="1" status="2" tag="45"></change_object_state>  
+  </chat>
+  <logout iduser="48" />
+</navigate>  
+</cooperativa_cliente_servidor>
