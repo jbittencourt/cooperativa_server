@@ -39,7 +39,7 @@ public class RDConnection {
                 Class.forName(driverClass).newInstance();
                 
                 //estabelece a conexao com o banco de dados
-                String url = "jdbc:" + subProtocol + "://" + host + "/" + db + "?user=" + user + "&password=" + password + "&db=" + db;
+                String url = "jdbc:" + subProtocol + "://" + host + "/" + db + "?user=" + user + "&password=" + password + "&db=" + db + "useUnicode=true&characterEncoding=utf-8";
                 conn = DriverManager.getConnection(url);
                 stmt = conn.createStatement();
             }

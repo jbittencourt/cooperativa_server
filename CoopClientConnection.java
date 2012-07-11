@@ -41,15 +41,17 @@ public class CoopClientConnection  {
         user = null;
         
         try {
-            inXml = new InputStreamReader(this.socket.getInputStream());
+            inXml = new InputStreamReader(this.socket.getInputStream(), "UTF-8");
             reader = new ReaderThread(inXml,this);
             reader.start();
         } catch(IOException e) { };
         
         try {
-            outXml = new PrintWriter(this.socket.getOutputStream(),true);
+            outXml = new PrintWriter( new OutputStreamWriter(this.socket.getOutputStream(), "UTF-8"),
+                                      true) ;
+            outXml.print("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
             outXml.print("<!DOCTYPE cooperativa_servidor_cliente SYSTEM ");
-            outXml.print("\"http://localhost/coop_servidor_cliente.dtd\">");
+            outXml.print("\"dtd/coop_servidor_cliente.dtd\">");
             outXml.println("<cooperativa_servidor_cliente version=\"0.5\">");
             outXml.flush();
         } catch(IOException e) { };
@@ -100,10 +102,11 @@ public class CoopClientConnection  {
      *
      */
     public void send(String str) {
-	outXml.println(str); 
-        System.out.println(str);
-	outXml.flush();
-    }
+  	    outXml.println(str); 
+        // System.out.println(str);
+  	    outXml.flush();
+   }
+    
        
    private class ReaderThread extends Thread {
        
@@ -137,25 +140,22 @@ public class CoopClientConnection  {
      public void run()  {
          
          InputSource source =  new InputSource(m_is);
+         source.setEncoding("UTF-8");
+         
          CoopClienteServidorStreamHandlerImpl handler = new CoopClienteServidorStreamHandlerImpl(owner);
          CoopClienteServidorStreamParser parser = new CoopClienteServidorStreamParser( handler,null);
          
-	 try {
-             parser.parse( source,handler);
-         }
-         catch(IOException ioe) {
-             testConnection();
-             System.out.println(ioe);
-         }
-         catch(org.xml.sax.SAXException saxe) {
-             testConnection();
-             System.out.println(saxe);
-         }
-         catch(javax.xml.parsers.ParserConfigurationException e) {
+      	 try {
+              parser.parse( source, handler);
+         } catch(IOException ioe) {
+              testConnection();
+              System.out.println(ioe);
+         } catch(org.xml.sax.SAXException saxe) {
+              testConnection();
+              System.out.println(saxe);
+         } catch(javax.xml.parsers.ParserConfigurationException e) {
              System.out.println(e);
-         }
-         
-
+          }     
      }
 
    }

@@ -9,6 +9,7 @@
 # 
 # Database : `cooperativa`
 # 
+CREATE DATABASE cooperativa;
 USE cooperativa;
 # --------------------------------------------------------
 
@@ -24,7 +25,7 @@ CREATE TABLE `avatar` (
   `nomeAvatar` varchar(60) NOT NULL default '',
   `flashFile` varchar(60) NOT NULL default '',
   PRIMARY KEY  (`codAvatar`)
-) TYPE=MyISAM AUTO_INCREMENT=0 ;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # --------------------------------------------------------
 
@@ -45,7 +46,7 @@ CREATE TABLE `CoopChat` (
   `tempo` bigint(13) NOT NULL default '0',
   `strMensagem` text NOT NULL,
   PRIMARY KEY  (`codUser`,`codCenario`,`tempo`)
-) TYPE=MyISAM;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE `CoopEstadosObjeto` (
   `codUser` int(11) NOT NULL default '0',
   `tag` int(11) NOT NULL default '0',
   PRIMARY KEY  (`codObjeto`,`codCenario`,`tempo`)
-) TYPE=MyISAM;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE `CoopMovimentos` (
   `posX` int(11) NOT NULL default '0',
   `posY` int(11) NOT NULL default '0',
   PRIMARY KEY  (`codUser`,`codCenario`,`tempo`)
-) TYPE=MyISAM;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # --------------------------------------------------------
 
@@ -105,7 +106,7 @@ CREATE TABLE `CoopObjeto` (
   `status` int(11) NOT NULL default '0',
   `tag` int(11) NOT NULL default '0',
   PRIMARY KEY  (`codObjeto`)
-) TYPE=MyISAM AUTO_INCREMENT=0;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 # --------------------------------------------------------
@@ -122,7 +123,9 @@ CREATE TABLE `cenario` (
   `xmlFile` varchar(60) NOT NULL default '',
   `xmlData` text,
   PRIMARY KEY  (`codCenario`)
-) TYPE=MyISAM AUTO_INCREMENT=3 ;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
 
 # --------------------------------------------------------
 
@@ -154,5 +157,11 @@ CREATE TABLE `user` (
   `codHomeCenario` int(11) NOT NULL default '0',
   `codAvatar` int(11) default NULL,
   PRIMARY KEY  (`codUser`)
-) TYPE=MyISAM AUTO_INCREMENT=0;
+) TYPE=MyISAM DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+#POPULATE INITIAL DATA
+
+# Insert default scenario
+INSERT INTO cenario SET nomeCenario="Praça", maxUsers="100", xmlFile="praca.xml" ;
+
+INSERT INTO user SET nomUser="testuser", nomPessoa="Teste", desSenhaPlain="teste", desSenha="698dc19d489c4e4db73e28a713eab07b", codAvatar=1, codHomeCenario=1;

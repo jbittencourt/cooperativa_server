@@ -26,11 +26,11 @@ public class Cenario extends RDObj {
     public String flashFile;    //flash file of this scene
     
     //esta propriedade nao eh persistente
-    private Vector runningConnections; //vetor das conexoes deste cenario
+    private Vector<CoopClientConnection> runningConnections; //vetor das conexoes deste cenario
     
     //esta propriedade nao eh persistente
     //vetor com os objetos do cenario que tiveram seu estado alterado
-    private Vector modObjects;
+    private Vector<CoopObjeto> modObjects;
     
     public Cenario() {
         //codigo RDObj
@@ -45,8 +45,8 @@ public class Cenario extends RDObj {
         setAutoIncFields(tabela,"codCenario");
         //fim codigo RDObj
         
-        runningConnections = new Vector(15,5);
-        modObjects = new Vector(15,5);    
+        runningConnections = new Vector<CoopClientConnection>(15,5);
+        modObjects = new Vector<CoopObjeto>(15,5);    
     }
     
     public Cenario(OpVal chaves[]) {
@@ -94,7 +94,7 @@ public class Cenario extends RDObj {
         modObjects.add(obj);
         System.out.println("Lista de objetos modificados: ");
         for (int i=0; i<modObjects.size(); i++) {
-            CoopObjeto o = (CoopObjeto) modObjects.get(i);
+            CoopObjeto o = modObjects.get(i);
             System.out.println(o + " : " + o.codObjeto + " -> " + o.nome);
         }
     }
@@ -109,7 +109,7 @@ public class Cenario extends RDObj {
         CoopObjeto obj = null;
         boolean achou = false;
         for (int i=0; i< modObjects.size(); i++) {
-            obj = (CoopObjeto) modObjects.get(i);
+            obj = modObjects.get(i);
             if (obj.getId() == id) {
                 achou = true;
                 break;
@@ -190,7 +190,7 @@ public class Cenario extends RDObj {
     public void imprimeUsuarios() {
         System.out.println("Usuarios conectados no cenario " + codCenario);
         for(int i=0; i<runningConnections.size(); i++) {
-            CoopClientConnection con = (CoopClientConnection) runningConnections.get(i);
+            CoopClientConnection con = runningConnections.get(i);
             CoopUser user = con.getUser();
             System.out.print("Usuario: " + user.codUser);
             System.out.println(" -> " + user.nomUser);
@@ -215,7 +215,7 @@ public class Cenario extends RDObj {
         CoopClientConnection userConexao;
         CoopUser userCen;
         for (int i=0; i<runningConnections.size(); i++) {
-           userConexao = (CoopClientConnection) runningConnections.get(i); 
+           userConexao =  runningConnections.get(i); 
            userCen = userConexao.getUser();
            msg += "<user_status ";
            msg += " iduser=\"" + userCen.codUser + "\" ";

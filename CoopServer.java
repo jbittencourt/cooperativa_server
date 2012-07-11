@@ -26,14 +26,14 @@ public class CoopServer {
     
     private String serverPort;
     private String serverName;
-    private static Vector runningCenarios; //vetor dos cenarios
+    private static Vector<Cenario> runningCenarios; //vetor dos cenarios
     private static syncThread tsync;
     private String iniFile;
     
     
     /** Creates a new instance of CoopServer */
     public CoopServer() {
-        runningCenarios = new Vector(10,1);
+        runningCenarios = new Vector<Cenario>(10,1);
         
         String currentDir = System.getProperty("user.dir");
         iniFile = currentDir + "/coop.ini";
@@ -139,7 +139,7 @@ public class CoopServer {
         System.out.println("Cenarios ativos: ");
         Cenario cen = null;
         for (int i=0; i < runningCenarios.size(); i++) {
-            cen = (Cenario) runningCenarios.get(i);
+            cen = runningCenarios.get(i);
             System.out.println("Cenario: " + cen.codCenario);
             if (imprimeUsuarios) 
                 cen.imprimeUsuarios();
@@ -151,7 +151,7 @@ public class CoopServer {
         boolean achou = false;
         Cenario cen = null;
         for (int i=0; i < runningCenarios.size(); i++) {
-            cen = (Cenario) runningCenarios.get(i);
+            cen = runningCenarios.get(i);
             if (cen.codCenario == id) {
                 achou = true;
                 break;
@@ -209,7 +209,7 @@ public class CoopServer {
         Cenario cen = null;
         
         for (int i=0; i < runningCenarios.size(); i++) {
-            cen = (Cenario) runningCenarios.get(i);
+            cen = runningCenarios.get(i);
             cen.syncUsers();
         }        
     }

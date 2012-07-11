@@ -65,7 +65,9 @@ public class CoopClienteServidorStreamHandlerImpl implements CoopClienteServidor
     public void handle_talk(final java.lang.String data, final Attributes meta) throws SAXException {
         if (DEBUG) System.err.println("handle_talk: " + data);
         int idUser = Integer.parseInt(meta.getValue("iduser"));
-        System.out.println("usuario " + idUser + " esta falando");
+        
+        PrintStream out = new PrintStream(System.out, true, "UTF-8");
+        out.println("usuario " + idUser + " esta falando: " + data.);
         
         Cenario cen = conexao.getCenario();
         cen.userTalk(conexao,data);

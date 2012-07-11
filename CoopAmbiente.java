@@ -78,6 +78,7 @@ public class CoopAmbiente {
             user.desSenhaPlain = password;
             user.nomPessoa = nomPessoa;
             user.codAvatar = codAvatar;
+            user.codHomeCenario = 1;
             user.salva();
             return true;
         }
